@@ -1,0 +1,56 @@
+/* src/components/StatCard.module.css */
+
+.card {
+    background-color: var(--card-bg-color, #2a2a2a);
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color, #3a3a3a);
+    min-width: 200px;
+}
+
+.title {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary-color, #aaa);
+}
+
+.valueContainer {
+    min-height: 48px;
+    /* Altura fija para evitar saltos de layout */
+    display: flex;
+    align-items: center;
+}
+
+.value {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary-color, #fff);
+}
+
+.error {
+    margin: 0;
+    font-size: 1rem;
+    color: #ff6b6b;
+}
+
+.skeleton {
+    width: 70%;
+    height: 40px;
+    background: linear-gradient(90deg, #3a3a3a 25%, #4a4a4a 50%, #3a3a3a 75%);
+    background-size: 200% 100%;
+    border-radius: 4px;
+    animation: skeleton-loading 1.5s infinite linear;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
