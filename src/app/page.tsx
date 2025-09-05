@@ -80,6 +80,7 @@ export default async function Home() {
             key={service.name}
             name={service.name}
             status={service.status}
+            lastChecked={lastChecked} // <-- AÑADE ESTA LÍNEA
           />
         ))}
       </div>
