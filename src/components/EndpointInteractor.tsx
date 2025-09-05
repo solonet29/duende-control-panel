@@ -3,12 +3,18 @@
 import { useState } from 'react';
 import { callApi } from '../app/endpoints/actions';
 
+type ApiResponse = {
+  status: number;
+  data?: any; // data can be anything, or not present on error
+  error?: string; // error message, or not present on success
+};
+
 export default function EndpointInteractor() {
   const [url, setUrl] = useState('');
   const [method, setMethod] = useState('GET');
   const [headers, setHeaders] = useState('');
   const [body, setBody] = useState('');
-  const [response, setResponse] = useState<any>(null);
+  const [response, setResponse] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {

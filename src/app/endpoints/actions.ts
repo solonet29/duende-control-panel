@@ -22,7 +22,7 @@ export async function callApi(url: string, options: CallApiOptions) {
       try {
         const parsed = JSON.parse(headersString);
         parsedHeaders = { ...parsedHeaders, ...parsed };
-      } catch (e) {
+      } catch (_e_json_parse) { // Renamed to avoid 'e' unused warning
         return { status: 400, error: 'Cabeceras JSON mal formadas.' };
       }
     }
@@ -40,8 +40,9 @@ export async function callApi(url: string, options: CallApiOptions) {
     const responseData = await response.json();
 
     return { status: response.status, data: responseData };
-  } catch (error: any) {
+  } catch (error: unknown) { // Changed to unknown
     console.error('API call failed:', error);
-    return { status: 500, error: error.message || 'Error desconocido en el servidor.' };
+    // Safely access message property
+    return { status: 500, error: (error instanceof Error) ? error.message : 'Error desconocido en el servidor.' };
   }
 }

@@ -35,7 +35,7 @@ async function getServiceStatus(url: string): Promise<ServiceStatus> {
     } else {
       return 'Error';
     }
-  } catch (error) {
+  } catch {
     return 'Offline';
   }
 }
