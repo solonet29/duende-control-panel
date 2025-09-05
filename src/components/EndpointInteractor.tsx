@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { callApi } from './actions';
+import { callApi } from '../app/endpoints/actions';
 
 export default function EndpointInteractor() {
   const [url, setUrl] = useState('');
