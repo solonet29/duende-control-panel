@@ -3,19 +3,19 @@ import ServiceStatusCard, { ServiceStatus } from "@/components/ServiceStatusCard
 const services = [
   {
     name: "duende-api-next",
-    url: "http://localhost:3000/api/health", // URL de ejemplo
+    url: process.env.DUENDE_API_NEXT_URL || "http://localhost:3000/api/health", // URL de ejemplo
   },
   {
     name: "duende-ingestion-worker",
-    url: "http://localhost:3001/api/health", // URL de ejemplo
+    url: process.env.DUENDE_INGESTION_WORKER_URL || "http://localhost:3001/api/health", // URL de ejemplo
   },
   {
     name: "agregador-contenidos-worker",
-    url: "http://localhost:3002/api/health", // URL de ejemplo
+    url: process.env.AGREGADOR_CONTENIDOS_WORKER_URL || "http://localhost:3002/api/health", // URL de ejemplo
   },
   {
     name: "duende-ojeador-worker",
-    url: "http://localhost:3003/api/health", // URL de ejemplo
+    url: process.env.DUENDE_OJEADOR_WORKER_URL || "http://localhost:3003/api/health", // URL de ejemplo
   },
 ];
 
